@@ -37,6 +37,9 @@ function swapPhoto() {
 	//Access the img element and replace its source
 	//with a new image from your images array which is loaded 
 	//from the JSON string
+	$('#slideShow').click(function(){
+		$('.img').text(galleryImage.next());
+	});
 	console.log('swap photo');
 }
 
@@ -54,8 +57,29 @@ var mJson;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = 'insert_url_here_to_image_json';
+var mUrl = "images.json";
 
+mRequest.onreadystatechange = function() 
+{
+	// Do something interesting if file is opened successfully
+	if (mRequest.readyState == 4 && mRequest.status == 200) 
+	{
+		try 
+		{
+		// Let’s try and see if we can parse JSON
+			mJson = JSON.parse(mRequest.responseText);
+		// Let’s print out the JSON; It will likely show as “obj”
+			console.log(mJson);
+		} 
+		catch(err) 
+		{
+			console.log(err.message)
+		}
+	}
+};
+mRequest.open("GET",mURL, true);
+mRequest.send();
+var mURL = 'images.json';
 
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
 //@param A GalleryImage object. Use this method for an event handler for loading a gallery Image object (optional).
@@ -88,5 +112,35 @@ function GalleryImage(imgLocation,description,date, imgPath) {
 	//3. the date when the photo was taken
 	this.date = date
 	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
-	this.imgPath = imgPath
+	this.img = img
 }
+
+$.ajax({
+  url: 'images.json',
+  dataType: 'json',
+  type: 'get',
+  cache: 'false',
+  success: function(data){
+    $(data.images).each(function(index, val){
+      //var name = index.to
+      var name = new GalleryImage(
+        val.imgLocation,
+        val.description,
+        val.date,
+        val.imgPath);
+      mImages.push(name);
+    });
+  }
+});
+
+$('img.moreIndicator').click(function(){
+	if (this.hasClass("rot90")){
+		this.add("rot270").remove("rot90");}
+	else if (this.hasClass("rot270"){
+		this.add("rot90").remove("rot270");}
+	else{}
+	$('div.details').fadeToggle("fast", function(){
+		$('img.moreIndicator').slideUp();
+	});
+	
+	});
