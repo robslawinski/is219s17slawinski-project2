@@ -49,11 +49,6 @@ var mCurrentIndex = 0;
 // XMLHttpRequest variable
 var mRequest = new XMLHttpRequest();
 
-// Array holding GalleryImage objects (see below).
-var mImages = [];
-
-// Holds the retrived JSON information
-var mJson;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
@@ -70,6 +65,11 @@ mRequest.onreadystatechange = function()
 			mJson = JSON.parse(mRequest.responseText);
 		// Let’s print out the JSON; It will likely show as “obj”
 			console.log(mJson);
+			
+			for(var i=0; i < mJson.images.length;i++)
+			{
+				mImages.push(new GalleryImage(mJson.images[i].imgLocation,mJson.images[i].description,mJson.images[i].date,mJson.images[i].imgPath));
+			}
 		} 
 		catch(err) 
 		{
@@ -79,6 +79,13 @@ mRequest.onreadystatechange = function()
 };
 mRequest.open("GET",mURL, true);
 mRequest.send();
+
+// Array holding GalleryImage objects (see below).
+var mImages = [];
+
+// Holds the retrived JSON information
+var mJson;
+
 var mURL = 'images.json';
 
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
@@ -133,13 +140,30 @@ $.ajax({
   }
 });
 
+function getQueryParams(qs) {
+	 qs = qs.split("+").join(" ");
+	 var params = {},
+		 tokens,
+		 re = /[?&]?([^=]+)=([^&]*)/g;
+	 while (tokens = re.exec(qs)) {
+		params[decodeURIComponent(tokens[1])]
+		= decodeURIComponent(tokens[2]);
+	 }
+	return params;
+}
+
 $('img.moreIndicator').click(function(){
-	if (this.hasClass("rot90")){
-		this.add("rot270").remove("rot90");}
-	else if (this.hasClass("rot270"){
-		this.add("rot90").remove("rot270");}
+	if (this.hasClass("rot90"))
+	{
+		this.add("rot270").remove("rot90");
+	}
+	else if (this.hasClass("rot270")
+	{
+		this.add("rot90").remove("rot270");
+	}
 	else{}
-	$('div.details').fadeToggle("fast", function(){
+	$('div.details').fadeToggle("fast", function()
+	{
 		$('img.moreIndicator').slideUp();
 	});
 	
