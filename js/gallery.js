@@ -90,6 +90,7 @@ mRequest.onreadystatechange = function()
 		}
 	}
 };
+console.log("mRequest Open");
 mRequest.open("GET",mURL, true);
 mRequest.send();
 
@@ -134,6 +135,11 @@ $(document).ready( function() {
 		{
 			mCurrentIndex = mCurrentIndex - 2;
 			swapPhoto();
+			console.log(mCurrentIndex);
+		});
+		$("#nextPhoto").click(function()
+		{
+			swapPhoto();
 		});
 	});
 
@@ -147,38 +153,19 @@ window.addEventListener('load', function() {
 
 }, false);
 
+var imgLocation;
+var description;
+var date;
+var src;
 
-function GalleryImage(imgLocation,description,date, src) {
+function GalleryImage(imgLoc, desc, dt, src) {
 	//implement me as an object to hold the following data about an image:
 	//1. location where photo was taken
-	this.imgLocation = imgLocation
+	imgLocation = imgLoc;
 	//2. description of photo
-	this.description = description
+	description = desc;
 	//3. the date when the photo was taken
-	this.date = date
+	date = dt;
 	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
-	this.src = src
+	src = src;
 }
-
-function reqListener () {
-	try
-	{
-			var myJson = JSON.parse(this.responseText);
-			for(var i = 0; i < myJson.images.length; i++) 
-			{
-				var tempInfo = myJson.images[i];
-				var galleryImage = new GalleryImage(tempInfo.imgLocation,tempInfo.description,tempInfo.date,tempInfo.src);
-				mImages.push(galleryImage);
-			}
-	}
-	catch(error)
-	{
-		mRequest.addEventListener("load", reqListener);
-		mRequest.open("GET","images.json");
-		mRequest.send();
-	}
-}
-var mRequest = new XMLHttpRequest();
-mRequest.addEventListener("load", reqListener);
-mRequest.open("GET", "http://www.example.org/example.txt");
-mRequest.send();
