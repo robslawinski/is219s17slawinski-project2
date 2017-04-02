@@ -55,6 +55,7 @@ function swapPhoto() {
 	 $('#slideShow').click(function(){
 		$('.img').text(galleryImage.next());
 	});
+	document.getElementById("photo").src = mImages[mCurrentIndex];
 	console.log('swap photo');
 	//d
 }
@@ -83,7 +84,7 @@ mRequest.onreadystatechange = function()
 			for(var i=0; i < mJson.images.length;i++)
 			{
 				mImages.push(new GalleryImage(mJson.images[i].imgLocation,mJson.images[i].description,mJson.images[i].date,mJson.images[i].imgPath));
-				console.log(mJson.images[i].imgLocation + " " + mJson.images[i].description  + " " + mJson.images[i].date + " " + mJson.images[i].imgPath)
+				console.log(mJson.images[i].imgLocation + " " + mJson.images[i].description  + " " + mJson.images[i].date + " " + mJson.images[i].imgPath);
 			}
 		} 
 		catch(err) 
