@@ -112,30 +112,8 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 }
 
 $(document).ready( function() {
-	// This initially hides the photos' metadata information
-	$('.details').eq(0).hide();
 	
-});
-
-window.addEventListener('load', function() {
-	
-	console.log('window loaded');
-
-}, false);
-
-function GalleryImage(imgLocation,description,date, src) {
-	//implement me as an object to hold the following data about an image:
-	//1. location where photo was taken
-	this.imgLocation = imgLocation
-	//2. description of photo
-	this.description = description
-	//3. the date when the photo was taken
-	this.date = date
-	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
-	this.src = src
-}
-
-$('img.moreIndicator').click(function()
+	$('img.moreIndicator').click(function()
 	{
 		if (this.hasClass("rot90"))
 		{
@@ -153,3 +131,26 @@ $('img.moreIndicator').click(function()
 	
 	});
 
+	// This initially hides the photos' metadata information
+	$('.details').eq(0).hide();
+	
+});
+
+window.addEventListener('load', function() {
+	
+	console.log('window loaded');
+
+}, false);
+
+
+function GalleryImage(imgLocation,description,date, src) {
+	//implement me as an object to hold the following data about an image:
+	//1. location where photo was taken
+	this.imgLocation = imgLocation
+	//2. description of photo
+	this.description = description
+	//3. the date when the photo was taken
+	this.date = date
+	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
+	this.src = src
+}
