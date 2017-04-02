@@ -64,7 +64,7 @@ function swapPhoto() {
 	var mImg = mImages[mCurrentIndex];
 	console.log("swapfoto: " + mImg.imgPath);
 	document.getElementById("photo").src = mImg.imgPath;
-	document.getElementById("location").innerHTML  = mImg.location;
+	document.getElementById("location").innerHTML  = mImg.imgLocation;
 	document.getElementById("description").innerHTML  = mImg.description;
 	document.getElementById("date").innerHTML  = mImg.date;
 	
