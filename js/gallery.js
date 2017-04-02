@@ -56,7 +56,7 @@ function swapPhoto() {
 		mCurrentIndex = 0;
   }
 
-	  $('#slideShow.photoHolder').attr('src', mImages[mCurrentIndex].src);
+	  $('#slideShow.photoHolder.img').attr('src', mImages[mCurrentIndex].src);
 	  $('#slideShow.details.location').text('Location: ' + mImages[mCurrentIndex].location);
 	  $('#slideShow.photoHolder.description').text('Description: ' + mImages[mCurrentIndex].description);
 	  $('#slideShow.photoHolder.date').text('Date: ' + mImages[mCurrentIndex].date);
