@@ -46,13 +46,11 @@ function swapPhoto() {
 // Counter for the mImages array
 var mCurrentIndex = 0;
 
-// XMLHttpRequest variable
-var mRequest = new XMLHttpRequest();
-
-
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
 var mUrl = "images.json";
+// XMLHttpRequest variable
+var mRequest = new XMLHttpRequest();
 
 mRequest.onreadystatechange = function() 
 {
@@ -68,7 +66,7 @@ mRequest.onreadystatechange = function()
 			
 			for(var i=0; i < mJson.images.length;i++)
 			{
-				mImages.push(new GalleryImage(mJson.images[i].imgLocation,mJson.images[i].description,mJson.images[i].date,mJson.images[i].imgPath));
+				mImages.push(new GalleryImage(mJson.images[i].imgLocation,mJson.images[i].description,mJson.images[i].date,mJson.images[i].src));
 			}
 		} 
 		catch(err) 
@@ -99,60 +97,7 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 
 $(document).ready( function() {
 	
-	// This initially hides the photos' metadata information
-	$('.details').eq(0).hide();
-	
-});
-
-window.addEventListener('load', function() {
-	
-	console.log('window loaded');
-
-}, false);
-
-function GalleryImage(imgLocation,description,date, imgPath) {
-	//implement me as an object to hold the following data about an image:
-	//1. location where photo was taken
-	this.imgLocation = imgLocation
-	//2. description of photo
-	this.description = description
-	//3. the date when the photo was taken
-	this.date = date
-	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
-	this.img = img
-}
-
-$.ajax({
-  url: 'images.json',
-  dataType: 'json',
-  type: 'get',
-  cache: 'false',
-  success: function(data){
-    $(data.images).each(function(index, val){
-      //var name = index.to
-      var name = new GalleryImage(
-        val.imgLocation,
-        val.description,
-        val.date,
-        val.imgPath);
-      mImages.push(name);
-    });
-  }
-});
-
-function getQueryParams(qs) {
-	 qs = qs.split("+").join(" ");
-	 var params = {},
-		 tokens,
-		 re = /[?&]?([^=]+)=([^&]*)/g;
-	 while (tokens = re.exec(qs)) {
-		params[decodeURIComponent(tokens[1])]
-		= decodeURIComponent(tokens[2]);
-	 }
-	return params;
-}
-
-$('img.moreIndicator').click(function(){
+	$('img.moreIndicator').click(function(){
 	if (this.hasClass("rot90"))
 	{
 		this.add("rot270").remove("rot90");
@@ -168,3 +113,39 @@ $('img.moreIndicator').click(function(){
 	});
 	
 	});
+
+	// This initially hides the photos' metadata information
+	$('.details').eq(0).hide();
+	
+});
+
+window.addEventListener('load', function() {
+	
+	console.log('window loaded');
+
+}, false);
+
+function GalleryImage(imgLocation,description,date, src) {
+	//implement me as an object to hold the following data about an image:
+	//1. location where photo was taken
+	this.imgLocation = imgLocation
+	//2. description of photo
+	this.description = description
+	//3. the date when the photo was taken
+	this.date = date
+	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
+	this.src = src
+}
+
+function getQueryParams(qs) {
+	 qs = qs.split("+").join(" ");
+	 var params = {},
+		 tokens,
+		 re = /[?&]?([^=]+)=([^&]*)/g;
+	 while (tokens = re.exec(qs)) {
+		params[decodeURIComponent(tokens[1])]
+		= decodeURIComponent(tokens[2]);
+	 }
+	return params;
+}
+
