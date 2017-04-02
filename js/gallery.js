@@ -162,13 +162,12 @@ var date;
 var src;
 
 function GalleryImage(imgLoc, desc, dt, src) {
-	//implement me as an object to hold the following data about an image:
-	//1. location where photo was taken
-	imgLocation = imgLoc;
-	//2. description of photo
-	description = desc;
-	//3. the date when the photo was taken
-	date = dt;
-	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
-	src = src;
+	return {
+        GalleryImage: {
+            imgLocation: imgLoc,
+            description: desc,
+			date: dt,
+			imgPath: src
+        }
+    };
 }
