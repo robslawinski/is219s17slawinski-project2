@@ -64,9 +64,9 @@ function swapPhoto() {
 	var mImg = mImages[mCurrentIndex];
 	console.log("swapfoto: " + mImg.imgPath);
 	document.getElementById("photo").src = mImg.imgPath;
-	document.getElementsByClassName ("location").innerHTML  = "location" + mImg.imgLocation;
-	document.getElementsByClassName ("description").innerHTML  = "description" + mImg.description;
-	document.getElementsByClassName ("date").innerHTML  = "date" + mImg.date;
+	document.getElementsByClassName ("location").innerHTML  = "location: " + mImg.imgLocation;
+	document.getElementsByClassName ("description").innerHTML  = "description: " + mImg.description;
+	document.getElementsByClassName ("date").innerHTML  = "date: " + mImg.date;
 	
 	console.log('swap photo');
 }
@@ -128,36 +128,15 @@ $(document).ready( function() {
 	// This initially hides the photos' metadata information
 	$('.details').eq(0).hide();
 	
-	$('img.moreIndicator').click(function()
-	{
-		if (this.hasClass("rot90"))
-		{
-			this.add("rot270").remove("rot90");
-		}
-		else if (this.hasClass("rot270"))
-		{
-			this.add("rot90").remove("rot270");
-		}
-		else{}
-		$('div.details').fadeToggle("fast", function()
-		{
-			$('img.moreIndicator').slideUp();
-		});
-		$("#prevPhoto").click(function() 
-		{
-			mCurrentIndex = mCurrentIndex - 2;
-			swapPhoto();
-			console.log(mCurrentIndex);
-		});
-		$("#nextPhoto").click(function()
-		{
-			swapPhoto();
-		});
+	$('#prevPhoto').click(function(){
+		alert("prevPhoto");
 	});
 
 	
 	
 });
+
+
 
 window.addEventListener('load', function() {
 	
