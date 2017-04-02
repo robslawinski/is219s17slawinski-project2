@@ -157,7 +157,7 @@ $('img.moreIndicator').click(function(){
 	{
 		this.add("rot270").remove("rot90");
 	}
-	else if (this.hasClass("rot270")
+	else if (this.hasClass("rot270"))
 	{
 		this.add("rot90").remove("rot270");
 	}
