@@ -70,6 +70,7 @@ var mRequest = new XMLHttpRequest();
 
 mRequest.onreadystatechange = function() 
 {
+	console.log("mRequest.onreadystatechange")
 	// Do something interesting if file is opened successfully
 	if (mRequest.readyState == 4 && mRequest.status == 200) 
 	{
@@ -90,7 +91,7 @@ mRequest.onreadystatechange = function()
 		}
 	}
 };
-console.log("mRequest Open");
+console.log("mRequest Open" + mURL);
 mRequest.open("GET",mURL, true);
 mRequest.send();
 
