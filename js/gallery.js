@@ -91,8 +91,8 @@ mRequest.onreadystatechange = function()
 		}
 	}
 };
-console.log("mRequest Open" + mURL);
-mRequest.open("GET",mURL, true);
+console.log("mRequest Open " + mUrl);
+mRequest.open("GET",mUrl, true);
 mRequest.send();
 
 // Array holding GalleryImage objects (see below).
@@ -100,8 +100,6 @@ var mImages = [];
 
 // Holds the retrived JSON information
 var mJson = {};
-
-var mURL = 'images.json';
 
 //You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
 //@param A GalleryImage object. Use this method for an event handler for loading a gallery Image object (optional).
