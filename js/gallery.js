@@ -52,16 +52,10 @@ function swapPhoto() {
 	//Access the img element and replace its source
 	//with a new image from your images array which is loaded 
 	//from the JSON string
-	 if(mCurrentIndex == mImages.length){
-		mCurrentIndex = 0;
-  }
-
-	  $('#slideShow.photoHolder.img').attr('src', mImages[mCurrentIndex].src);
-	  $('#slideShow.details.location').text('Location: ' + mImages[mCurrentIndex].location);
-	  $('#slideShow.photoHolder.description').text('Description: ' + mImages[mCurrentIndex].description);
-	  $('#slideShow.photoHolder.date').text('Date: ' + mImages[mCurrentIndex].date);
-	mCurrentIndex++;
-  console.log(mImages.length);
+	 $('#slideShow').click(function(){
+		$('.img').text(galleryImage.next());
+	});
+	console.log('swap photo');
 }
 
 // Counter for the mImages array
