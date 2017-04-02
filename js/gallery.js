@@ -55,7 +55,9 @@ function swapPhoto() {
 	 $('#slideShow').click(function(){
 		$('.img').text(galleryImage.next());
 	});
-	console.log("swapfoto: " + mImages[mCurrentIndex].imgPath)
+	console.log("swapfoto: " + mImages[mCurrentIndex].imgPath);
+	var img = mImages[mCurrentIndex];
+	console.log("IMG: " + img);
 	document.getElementById("photo").src = mImages[mCurrentIndex].imgPath;
 	
 	console.log('swap photo');
