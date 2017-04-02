@@ -79,6 +79,10 @@ mRequest.onreadystatechange = function()
 			mJson = JSON.parse(mRequest.responseText);
 		// Let’s print out the JSON; It will likely show as “obj”
 			console.log(mJson);
+			for(var i=0; i < mJson.images.length;i++)
+			{
+				mImages.push(new GalleryImage(mJson.images[i].imgLocation,mJson.images[i].description,mJson.images[i].date,mJson.images[i].src));
+			}
 		} 
 		catch(err) 
 		{
@@ -93,7 +97,7 @@ mRequest.send();
 var mImages = [];
 
 // Holds the retrived JSON information
-var mJson;
+var mJson = {};
 
 var mURL = 'images.json';
 
@@ -107,6 +111,9 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 }
 
 $(document).ready( function() {
+	
+	// This initially hides the photos' metadata information
+	$('.details').eq(0).hide();
 	
 	$('img.moreIndicator').click(function()
 	{
@@ -123,11 +130,14 @@ $(document).ready( function() {
 		{
 			$('img.moreIndicator').slideUp();
 		});
-	
+		$("#prevPhoto").click(function() 
+		{
+			mCurrentIndex = mCurrentIndex - 2;
+			swapPhoto();
+		});
 	});
 
-	// This initially hides the photos' metadata information
-	$('.details').eq(0).hide();
+	
 	
 });
 
@@ -149,3 +159,26 @@ function GalleryImage(imgLocation,description,date, src) {
 	//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
 	this.src = src
 }
+
+function reqListener () {
+	try
+	{
+			var myJson = JSON.parse(this.responseText);
+			for(var i = 0; i < myJson.images.length; i++) 
+			{
+				var tempInfo = myJson.images[i];
+				var galleryImage = new GalleryImage(tempInfo.imgLocation,tempInfo.description,tempInfo.date,tempInfo.src);
+				mImages.push(galleryImage);
+			}
+	}
+	catch(error)
+	{
+		mRequest.addEventListener("load", reqListener);
+		mRequest.open("GET","images.json");
+		mRequest.send();
+	}
+}
+var mRequest = new XMLHttpRequest();
+mRequest.addEventListener("load", reqListener);
+mRequest.open("GET", "http://www.example.org/example.txt");
+mRequest.send();
