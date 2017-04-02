@@ -56,6 +56,7 @@ function swapPhoto() {
 		$('.img').text(galleryImage.next());
 	});
 	console.log('swap photo');
+	
 }
 
 // Counter for the mImages array
