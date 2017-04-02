@@ -158,18 +158,11 @@ window.addEventListener('load', function() {
 
 }, false);
 
-var imgLocation;
-var description;
-var date;
-var src;
-
 function GalleryImage(imgLoc, desc, dt, src) {
 	return {
-        GalleryImage: {
-            imgLocation: imgLoc,
-            description: desc,
-			date: dt,
-			imgPath: src
-        }
+		imgLocation: imgLoc,
+		description: desc,
+		date: dt,
+		imgPath: src
     };
 }
