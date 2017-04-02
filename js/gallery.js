@@ -32,15 +32,36 @@ function animate() {
 
 /************* DO NOT TOUCH CODE ABOVE THIS LINE ***************/
 
+function getQueryParams(qs) {
+	 qs = qs.split("+").join(" ");
+	 var params = {},
+		 tokens,
+		 re = /[?&]?([^=]+)=([^&]*)/g;
+	 while (tokens = re.exec(qs)) {
+		params[decodeURIComponent(tokens[1])]
+		= decodeURIComponent(tokens[2]);
+	 }
+	return params;
+}
+
+var $_GET = getQueryParams(document.location.search);
+console.log($_GET["json"]); 
+
 function swapPhoto() {
 	//Add code here to access the #slideShow element.
 	//Access the img element and replace its source
 	//with a new image from your images array which is loaded 
 	//from the JSON string
-	$('#slideShow').click(function(){
-		$('.img').text(galleryImage.next());
-	});
-	console.log('swap photo');
+	 if(mCurrentIndex == mImages.length){
+		mCurrentIndex = 0;
+  }
+
+	  $('#slideShow.photoHolder').attr('src', mImages[mCurrentIndex].src);
+	  $('#slideShow.details.location').text('Location: ' + mImages[mCurrentIndex].location);
+	  $('#slideShow.photoHolder.description').text('Description: ' + mImages[mCurrentIndex].description);
+	  $('#slideShow.photoHolder.date').text('Date: ' + mImages[mCurrentIndex].date);
+	mCurrentIndex++;
+  console.log(mImages.length);
 }
 
 // Counter for the mImages array
@@ -63,11 +84,6 @@ mRequest.onreadystatechange = function()
 			mJson = JSON.parse(mRequest.responseText);
 		// Let’s print out the JSON; It will likely show as “obj”
 			console.log(mJson);
-			
-			for(var i=0; i < mJson.images.length;i++)
-			{
-				mImages.push(new GalleryImage(mJson.images[i].imgLocation,mJson.images[i].description,mJson.images[i].date,mJson.images[i].src));
-			}
 		} 
 		catch(err) 
 		{
@@ -96,24 +112,6 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 }
 
 $(document).ready( function() {
-	
-	$('img.moreIndicator').click(function(){
-	if (this.hasClass("rot90"))
-	{
-		this.add("rot270").remove("rot90");
-	}
-	else if (this.hasClass("rot270"))
-	{
-		this.add("rot90").remove("rot270");
-	}
-	else{}
-	$('div.details').fadeToggle("fast", function()
-	{
-		$('img.moreIndicator').slideUp();
-	});
-	
-	});
-
 	// This initially hides the photos' metadata information
 	$('.details').eq(0).hide();
 	
@@ -137,15 +135,21 @@ function GalleryImage(imgLocation,description,date, src) {
 	this.src = src
 }
 
-function getQueryParams(qs) {
-	 qs = qs.split("+").join(" ");
-	 var params = {},
-		 tokens,
-		 re = /[?&]?([^=]+)=([^&]*)/g;
-	 while (tokens = re.exec(qs)) {
-		params[decodeURIComponent(tokens[1])]
-		= decodeURIComponent(tokens[2]);
-	 }
-	return params;
-}
+$('img.moreIndicator').click(function()
+	{
+		if (this.hasClass("rot90"))
+		{
+			this.add("rot270").remove("rot90");
+		}
+		else if (this.hasClass("rot270"))
+		{
+			this.add("rot90").remove("rot270");
+		}
+		else{}
+		$('div.details').fadeToggle("fast", function()
+		{
+			$('img.moreIndicator').slideUp();
+		});
+	
+	});
 
