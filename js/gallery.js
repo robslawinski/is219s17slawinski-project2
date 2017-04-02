@@ -62,13 +62,13 @@ function swapPhoto() {
 	}
 	
 	var mImg = mImages[mCurrentIndex];
-	console.log("swapfoto: " + mImages[mCurrentIndex].imgPath);
-	
-	console.log("IMG: " + mImg.imgPath);
-	document.getElementById("photo").src = mImages[mCurrentIndex].imgPath;
+	console.log("swapfoto: " + mImg.imgPath);
+	document.getElementById("photo").src = mImg.imgPath;
+	document.getElementById("location").innerHTML  = mImg.location;
+	document.getElementById("description").innerHTML  = mImg.description;
+	document.getElementById("date").innerHTML  = mImg.date;
 	
 	console.log('swap photo');
-	//d
 }
 
 // Counter for the mImages array
