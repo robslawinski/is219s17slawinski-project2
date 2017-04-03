@@ -46,6 +46,7 @@ function getQueryParams(qs) {
 
 var $_GET = getQueryParams(document.location.search);
 console.log( "$_GET: " + $_GET["json"]); 
+var mUrl = "images.json";
 if($_GET["json"] != undefined)
 {
 	mUrl = $_GET["json"];
@@ -80,7 +81,7 @@ var mCurrentIndex = 0;
 
 // URL for the JSON to load by default
 // Some options for you are: images.json, images.short.json; you will need to create your own extra.json later
-var mUrl = "images.json";
+
 // XMLHttpRequest variable
 var mRequest = new XMLHttpRequest();
 
