@@ -128,10 +128,43 @@ $(document).ready( function() {
 	// This initially hides the photos' metadata information
 	$('.details').eq(0).hide();
 	
+	$('img.moreIndicator').click(function()
+	{
+		
+		
+		if (this.hasClass("rot90"))
+		{
+			this.add("rot270").remove("rot90");
+		}
+		else if (this.hasClass("rot270"))
+		{
+			this.add("rot90").remove("rot270");
+		}
+		else{}
+		$('div.details').fadeToggle("fast", function()
+		{
+			$('img.moreIndicator').slideUp();
+		});
+		$("#prevPhoto").click(function() 
+		{
+		
+		});
+		});
+
 	$('#prevPhoto').click(function(){
-		alert("prevPhoto");
+		mCurrentIndex = mCurrentIndex - 2;
+		if (mCurrentIndex < 0)
+		{
+			mCurrentIndex = mImages.length;
+		}
+		swapPhoto();
+			console.log(mCurrentIndex);	alert("prevPhoto");
 	});
 
+	$("#nextPhoto").click(function()
+	{
+		swapPhoto();
+	});
 	
 	
 });
