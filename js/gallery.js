@@ -170,7 +170,7 @@ $(document).ready( function() {
 		mCurrentIndex = mCurrentIndex - 2;
 		if (mCurrentIndex < 0)
 		{
-			mCurrentIndex = mImages.length-2;
+			mCurrentIndex = mImages[0];
 		}
 		swapPhoto();
 	});
