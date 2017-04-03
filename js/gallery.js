@@ -57,9 +57,7 @@ function swapPhoto() {
 	//Access the img element and replace its source
 	//with a new image from your images array which is loaded 
 	//from the JSON string
-	 $('#slideShow').click(function(){
-		$('.img').text(galleryImage.next());
-	});
+	 
 	mCurrentIndex++;
 	if (mCurrentIndex >= mImages.length)
 	{
@@ -76,6 +74,26 @@ function swapPhoto() {
 	console.log('swap photo');
 }
 
+function swapPhotoHelper()
+{
+	$('#slideShow').click(function(){
+		$('.img').text(galleryImage.previous());
+	});
+	mCurrentIndex--;
+	if (mCurrentIndex >= mImages.length)
+	{
+		mCurrentIndex = 0;
+	}
+	
+	var mImg = mImages[mCurrentIndex];
+	console.log("swapfoto: " + mImg.imgPath);
+	document.getElementById("photo").src = mImg.imgPath;
+	document.getElementsByClassName("location")[0].innerHTML  = "Location: " + mImg.imgLocation;
+	document.getElementsByClassName("description")[0].innerHTML  = "Description: " + mImg.description;
+	document.getElementsByClassName("date")[0].innerHTML  = "Date: " + mImg.date;
+	
+	console.log('swap photo');
+}
 // Counter for the mImages array
 var mCurrentIndex = 0;
 
