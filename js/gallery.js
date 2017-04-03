@@ -148,7 +148,8 @@ $(document).ready( function() {
 		else{}
 		$('div.details').fadeToggle("fast", function()
 		{
-			$('.moreIndicator').slideUp();
+			$('div.details').slideUp();
+			$('div.details').slideDown();
 		});
 	});
 
