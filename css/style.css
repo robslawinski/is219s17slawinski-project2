@@ -80,7 +80,7 @@ Make it animate nicely. You'll need CSS3 for this*/
 	-o-transform: rotate(90deg); 
 	-ms-transform: rotate(90deg); 
 	transform: rotate(90deg);
-	justify-content: center
+	justify-content: center;
 }
 
 /*Add CSS styles to rotate the element 180deg
