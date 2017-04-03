@@ -30,8 +30,8 @@ body {
 	position: relative;
 	z-index: 3;
 	opacity: .8;
+	align: center;	
 	
-	right: 300px;
 	bottom: 60px;
 }
 
