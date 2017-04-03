@@ -45,7 +45,7 @@ function getQueryParams(qs) {
 }
 
 var $_GET = getQueryParams(document.location.search);
-console.log($_GET["json"]); 
+console.log( "$_GET: " + $_GET["json"]); 
 
 function swapPhoto() {
 	//Add code here to access the #slideShow element.
