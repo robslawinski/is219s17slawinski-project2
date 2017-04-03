@@ -128,9 +128,9 @@ $(document).ready( function() {
 	// This initially hides the photos' metadata information
 	$('.details').eq(0).hide();
 	
-	$('#moreIndicator').click(function()
+	$('.moreIndicator').click(function()
 	{
-		console.log("moreIndicator");
+		console.log(".moreIndicator");
 		
 		if (this.hasClass("rot90"))
 		{
