@@ -168,7 +168,7 @@ $(document).ready( function() {
 	$('#prevPhoto').click(function(){
 		console.log("prevPhoto");
 		mCurrentIndex = mCurrentIndex - 2;
-		if (mCurrentIndex < 0)
+		if (mCurrentIndex <= 0)
 		{
 			mCurrentIndex = mImages.length-2;
 		}
