@@ -76,15 +76,16 @@ function swapPhoto() {
 
 function swapPhotoHelper()
 {
-	$('#slideShow').click(function(){
-		$('.img').text(galleryImage.previous());
-	});
 	mCurrentIndex--;
 	if (mCurrentIndex >= mImages.length)
 	{
 		mCurrentIndex = 0;
 	}
-	
+	/*
+	if(mCurrentIndex == 0)
+	{
+		mCurrentIndex = mImages[mImages.length];
+	}*/
 	var mImg = mImages[mCurrentIndex];
 	console.log("swapfoto: " + mImg.imgPath);
 	document.getElementById("photo").src = mImg.imgPath;
@@ -196,7 +197,7 @@ $(document).ready( function() {
 	$("#nextPhoto").click(function()
 	{
 		console.log("nextPhoto")
-		swapPhoto();
+		swapPhotoHelper();
 	});
 	
 	
