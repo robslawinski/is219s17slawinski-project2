@@ -132,24 +132,25 @@ $(document).ready( function() {
 	{
 		console.log(".moreIndicator");
 		
-		if (this.hasClass("rot90"))
+		
+		
+		
+		if (hasClass("rot90"))
 		{
-			this.add("rot270").remove("rot90");
+			console.log("has rot90");
+			add("rot270").remove("rot90");
 		}
-		else if (this.hasClass("rot270"))
+		else if (hasClass("rot270"))
 		{
-			this.add("rot90").remove("rot270");
+			console.log("has rot270");
+			add("rot90").remove("rot270");
 		}
 		else{}
 		$('div.details').fadeToggle("fast", function()
 		{
-			$('img.moreIndicator').slideUp();
+			$('.moreIndicator').slideUp();
 		});
-		$("#prevPhoto").click(function() 
-		{
-		
-		});
-		});
+	});
 
 	$('#prevPhoto').click(function(){
 		console.log("prevPhoto");
