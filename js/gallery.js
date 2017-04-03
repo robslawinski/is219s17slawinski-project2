@@ -61,7 +61,7 @@ function swapPhoto() {
 		$('.img').text(galleryImage.next());
 	});
 	mCurrentIndex++;
-	if (mCurrentIndex >= mImages.length)
+	if (mCurrentIndex > mImages.length)
 	{
 		mCurrentIndex = 0;
 	}
@@ -69,9 +69,9 @@ function swapPhoto() {
 	var mImg = mImages[mCurrentIndex];
 	console.log("swapfoto: " + mImg.imgPath);
 	document.getElementById("photo").src = mImg.imgPath;
-	document.getElementsByClassName("location")[0].innerHTML  = "location: " + mImg.imgLocation;
-	document.getElementsByClassName("description")[0].innerHTML  = "description: " + mImg.description;
-	document.getElementsByClassName("date")[0].innerHTML  = "date: " + mImg.date;
+	document.getElementsByClassName("location")[0].innerHTML  = "Location: " + mImg.imgLocation;
+	document.getElementsByClassName("description")[0].innerHTML  = "Description: " + mImg.description;
+	document.getElementsByClassName("date")[0].innerHTML  = "Date: " + mImg.date;
 	
 	console.log('swap photo');
 }
