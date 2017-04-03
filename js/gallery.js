@@ -77,9 +77,9 @@ function swapPhoto() {
 function swapPhotoHelper()
 {
 	mCurrentIndex--;
-	if (mCurrentIndex >= mImages.length)
+	if (mCurrentIndex < 0)
 	{
-		mCurrentIndex = 0;
+		mCurrentIndex = mImages.length;
 	}
 	/*
 	if(mCurrentIndex == 0)
@@ -87,13 +87,13 @@ function swapPhotoHelper()
 		mCurrentIndex = mImages[mImages.length];
 	}*/
 	var mImg = mImages[mCurrentIndex];
-	console.log("swapfoto: " + mImg.imgPath);
+	console.log("swap foto: " + mImg.imgPath);
 	document.getElementById("photo").src = mImg.imgPath;
 	document.getElementsByClassName("location")[0].innerHTML  = "Location: " + mImg.imgLocation;
 	document.getElementsByClassName("description")[0].innerHTML  = "Description: " + mImg.description;
 	document.getElementsByClassName("date")[0].innerHTML  = "Date: " + mImg.date;
 	
-	console.log('swap photo');
+	console.log('swap photo help');
 }
 // Counter for the mImages array
 var mCurrentIndex = 0;
@@ -186,18 +186,18 @@ $(document).ready( function() {
 
 	$('#prevPhoto').click(function(){
 		console.log("prevPhoto");
-		mCurrentIndex = mCurrentIndex - 2;
+		mCurrentIndex = mCurrentIndex - 1;
 		if (mCurrentIndex <= 0)
 		{
-			mCurrentIndex = mImages.length-2;
+			mCurrentIndex = mImages.length-1;
 		}
-		swapPhoto();
+		swapPhotoHelper();
 	});
 
 	$("#nextPhoto").click(function()
 	{
 		console.log("nextPhoto")
-		swapPhotoHelper();
+		swapPhoto();
 	});
 	
 	
