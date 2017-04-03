@@ -135,15 +135,15 @@ $(document).ready( function() {
 		
 		
 		
-		if (hasClass("rot90"))
+		if ($('.moreIndicator').hasClass("rot90"))
 		{
 			console.log("has rot90");
-			add("rot270").remove("rot90");
+			$('.moreIndicator').add("rot270").remove("rot90");
 		}
-		else if (hasClass("rot270"))
+		else if ($('.moreIndicator').hasClass("rot270"))
 		{
 			console.log("has rot270");
-			add("rot90").remove("rot270");
+			$('.moreIndicator').add("rot90").remove("rot270");
 		}
 		else{}
 		$('div.details').fadeToggle("fast", function()
