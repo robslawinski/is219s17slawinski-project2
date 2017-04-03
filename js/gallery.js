@@ -128,9 +128,9 @@ $(document).ready( function() {
 	// This initially hides the photos' metadata information
 	$('.details').eq(0).hide();
 	
-	$('img.moreIndicator').click(function()
+	$('#moreIndicator').click(function()
 	{
-		
+		console.log("moreIndicator");
 		
 		if (this.hasClass("rot90"))
 		{
@@ -152,17 +152,18 @@ $(document).ready( function() {
 		});
 
 	$('#prevPhoto').click(function(){
+		console.log("prevPhoto");
 		mCurrentIndex = mCurrentIndex - 2;
 		if (mCurrentIndex < 0)
 		{
 			mCurrentIndex = mImages.length;
 		}
 		swapPhoto();
-			console.log(mCurrentIndex);	alert("prevPhoto");
 	});
 
 	$("#nextPhoto").click(function()
 	{
+		console.log("nextPhoto")
 		swapPhoto();
 	});
 	
