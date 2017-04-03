@@ -139,17 +139,25 @@ $(document).ready( function() {
 		{
 			console.log("has rot90");
 			$('.moreIndicator').add("rot270").remove("rot90");
+			$('div.details').fadeToggle("fast", function()
+			{
+				$('div.details').slideDown();
+			});
 		}
 		else if ($('.moreIndicator').hasClass("rot270"))
 		{
 			console.log("has rot270");
 			$('.moreIndicator').add("rot90").remove("rot270");
+			$('div.details').fadeToggle("fast", function()
+			{
+				$('div.details').slideUp();
+			});
 		}
-		else{}
-		$('div.details').fadeToggle("fast", function()
+		else
 		{
-			$('.moreIndicator').slideUp();
-		});
+			$('.moreIndicator').add("rot270")
+		}
+	
 	});
 
 	$('#prevPhoto').click(function(){
