@@ -27,7 +27,7 @@ body {
 .moreIndicator {
 	height: 50px;
 	width: 50px;
-	position: relative;
+	position: absolute;
 	z-index: 3;
 	opacity: .8;
 	
