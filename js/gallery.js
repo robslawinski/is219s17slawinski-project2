@@ -186,11 +186,6 @@ $(document).ready( function() {
 
 	$('#prevPhoto').click(function(){
 		console.log("prevPhoto");
-		mCurrentIndex = mCurrentIndex - 1;
-		if (mCurrentIndex <= 0)
-		{
-			mCurrentIndex = mImages.length-1;
-		}
 		swapPhotoHelper();
 	});
 
