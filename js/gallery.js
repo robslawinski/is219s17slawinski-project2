@@ -61,7 +61,7 @@ function swapPhoto() {
 		$('.img').text(galleryImage.next());
 	});
 	mCurrentIndex++;
-	if (mCurrentIndex > mImages.length)
+	if (mCurrentIndex >= mImages.length)
 	{
 		mCurrentIndex = 0;
 	}
