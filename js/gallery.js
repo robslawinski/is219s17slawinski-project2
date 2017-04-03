@@ -138,7 +138,7 @@ $(document).ready( function() {
 		if ($('.moreIndicator').hasClass("rot90"))
 		{
 			console.log("has rot90");
-			$('.moreIndicator').add("rot270").remove("rot90");
+			$('.moreIndicator').addClass("rot270").removeClass("rot90");
 			$('div.details').fadeToggle("fast", function()
 			{
 				$('div.details').slideDown();
@@ -147,7 +147,7 @@ $(document).ready( function() {
 		else if ($('.moreIndicator').hasClass("rot270"))
 		{
 			console.log("has rot270");
-			$('.moreIndicator').add("rot90").remove("rot270");
+			$('.moreIndicator').addClass("rot90").removeClass("rot270");
 			$('div.details').fadeToggle("fast", function()
 			{
 				$('div.details').slideUp();
