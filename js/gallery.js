@@ -64,9 +64,9 @@ function swapPhoto() {
 	var mImg = mImages[mCurrentIndex];
 	console.log("swapfoto: " + mImg.imgPath);
 	document.getElementById("photo").src = mImg.imgPath;
-	document.getElementsByClassName (".location").innerHTML  = "location: " + mImg.imgLocation;
-	document.getElementsByClassName (".description").innerHTML  = "description: " + mImg.description;
-	document.getElementsByClassName (".date").innerHTML  = "date: " + mImg.date;
+	document.getElementsByClassName("location")[0].innerHTML  = "location: " + mImg.imgLocation;
+	document.getElementsByClassName("description")[0].innerHTML  = "description: " + mImg.description;
+	document.getElementsByClassName("date")[0].innerHTML  = "date: " + mImg.date;
 	
 	console.log('swap photo');
 }
