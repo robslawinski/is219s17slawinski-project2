@@ -79,7 +79,7 @@ function swapPhotoHelper()
 	mCurrentIndex--;
 	if (mCurrentIndex < 0)
 	{
-		mCurrentIndex = mImages.length;
+		mCurrentIndex = mImages.length-1;
 	}
 	/*
 	if(mCurrentIndex == 0)
