@@ -1,0 +1,34 @@
+{
+    "images": [
+        {
+            "imgPath": "img/extra/white-orchard.jpg",
+            "imgLocation": "Temeria",
+            "description": "White Orchard, a Humble Village",
+            "date": "01/01/2016"
+        },
+        {
+            "imgPath": "img/extra/crows-perch.jpg",
+            "imgLocation": "Velen",
+            "description": "Crow's Perch",
+            "date": "02/01/2016"
+        },
+        {
+            "imgPath": "img/extra/estate.jpg",
+            "imgLocation": "Gustfields",
+            "description": "Vegelbud Estate",
+            "date": "03/01/2016"
+        },
+		{
+		  "imgPath": "img/extra/novigrad.jpg",
+		  "imgLocation": "Novigrad",
+		  "description": "The City of Novigrad",
+		  "date": "04/01/2016"
+		},    
+		{
+		  "imgPath": "img/extra/castle.jpg",
+		  "imgLocation": "Kaedwen",
+		  "description": "Kaer Morhen",
+		  "date": "04/01/2016"
+		}
+	]
+}
