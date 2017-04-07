@@ -3,16 +3,18 @@ body {
 	font-family: 'Century Gothic', sans-serif;
 	background-image: url(../img/geometry.jpg);
 }
-
+#photo{
+	vertical-align:center;
+	margin:auto;
+	
+}
 #photoBooth {
 	margin-top: .2em;
 	padding: 10px;
 	width: 650px;
-	margin-left: auto;
-	margin-right: auto;
+	margin: auto;
 	background-color: white;
 	border-radius: 2px;
-	vertical-align: middle;
 }	
 
 #slideShow {	
@@ -23,8 +25,6 @@ body {
 	position: relative;
 	width: 80%;
 	margin: 0 auto;
-	vertical-align: middle;
-
 }
 
 .moreIndicator {
@@ -36,7 +36,7 @@ body {
 	
 	left: 250px;
 	bottom: 60px;
-	vertical-align: middle;
+	vertical-align: center;
 }
 
 .thumbnail {
