@@ -32,7 +32,8 @@ body {
 	opacity: .8;
 	
 	left: 250px;
-	bottom: 60px;	 
+	bottom: 60px;
+	vertical-align: middle;
 }
 
 .thumbnail {
