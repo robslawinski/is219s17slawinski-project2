@@ -34,7 +34,7 @@ body {
 	z-index: 3;
 	opacity: .8;
 	
-	left: 250px;
+	left: 225px;
 	bottom: 60px;
 	vertical-align: center;
 }
@@ -105,6 +105,7 @@ Make it animate nicely. You'll need CSS3 for this*/
         -webkit-transform: rotate(180deg);
         -moz-transform: rotate(180deg);
         -o-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
         -ms-transform: rotate(180deg);
         transform: rotate(180deg);
 }
